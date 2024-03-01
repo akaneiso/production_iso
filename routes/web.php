@@ -20,7 +20,11 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/addregister', [App\Http\Controllers\VaccineController::class, 'add']);
+Route::post('/addregister', [App\Http\Controllers\VaccineController::class, 'add']);
+Route::get('/editregister', [App\Http\Controllers\VaccineController::class, 'edit']);
+Route::post('/editregister', [App\Http\Controllers\VaccineController::class, 'edit']);
+Route::get('/vaccineschedule', [App\Http\Controllers\VaccineController::class, 'show']);
 Route::prefix('items')->group(function () {
     Route::get('/', [App\Http\Controllers\ItemController::class, 'index']);
     Route::get('/add', [App\Http\Controllers\ItemController::class, 'add']);
