@@ -33,13 +33,17 @@ class HomeController extends Controller
     {
         $users = User::all();
         $children = Child::all();
-        $vaccines = Vaccine::all();
-
+        //$vaccines = Vaccine::all();
+        //Child::find(1);
+        // $birthday = $children->birthday;
+        // $date = $birthday;
+        // $birthdaymonth = date('n', strtotime($date));
 
         return view('home', [
             'users' => $users,
             'children' => $children,
-            'vaccines' => $vaccines
+            //'vaccines' => $vaccines,
+            //'birthdaymonth' => $birthdaymonth
 
         ]);
     }

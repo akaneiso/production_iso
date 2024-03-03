@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name', 100)->index();
             $table->smallInteger('startdate');
             $table->smallInteger('enddate');
+            $table->tinyInteger('type');
             $table->timestamps();
         });
 

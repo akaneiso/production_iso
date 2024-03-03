@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Child;
 
 class Vaccine extends Model
 {
@@ -15,4 +16,14 @@ class Vaccine extends Model
         'startdate',
         'enddate',
     ];
+
+    public function calc($id)
+    {
+        $child = Child::find($id);
+        $birthday = $child->birthday;
+        $date = $birthday;
+        $birthdaymonth = date('n', strtotime($date));
+
+        return $birthdaymonth;
+    }
 }

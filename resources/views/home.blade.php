@@ -23,6 +23,7 @@ $now = new Carbon();
     <p class="card-text">ワクチン名：</p>
     <span>{{ $now->diff(new Carbon($child->birthday))->y . '歳' }}</span>
     <span>{{ $now->diff(new Carbon($child->birthday))->m . 'ヶ月' }}</span>
+   
   </div>
   <div class="card-footer text-body-secondary">
 
