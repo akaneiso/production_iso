@@ -16,14 +16,4 @@ class Vaccine extends Model
         'startdate',
         'enddate',
     ];
-
-    public function calc($id)
-    {
-        $child = Child::find($id);
-        $birthday = $child->birthday;
-        $date = $birthday;
-        $birthdaymonth = date('n', strtotime($date));
-
-        return $birthdaymonth;
-    }
 }

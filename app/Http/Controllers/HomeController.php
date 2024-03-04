@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Vaccine;
 use App\Models\Child;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -31,19 +32,17 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
-        $users = User::all();
-        $children = Child::all();
-        //$vaccines = Vaccine::all();
-        //Child::find(1);
-        // $birthday = $children->birthday;
-        // $date = $birthday;
-        // $birthdaymonth = date('n', strtotime($date));
+        $user = Auth::user();
+        $children = Child::where('user_id', $user->id)->get();
+        $vaccines2 = Vaccine::where('startdate','=', 2 )->get();
+        $vaccines5 = Vaccine::where('startdate','=', 5 )->get();
+        $vaccines12 = Vaccine::where('startdate','=', 12 )->get();
 
         return view('home', [
-            'users' => $users,
             'children' => $children,
-            //'vaccines' => $vaccines,
-            //'birthdaymonth' => $birthdaymonth
+            'vaccines2' => $vaccines2,
+            'vaccines5' => $vaccines5,
+            'vaccines12' => $vaccines12,
 
         ]);
     }
