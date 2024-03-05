@@ -37,12 +37,14 @@ class HomeController extends Controller
         $vaccines2 = Vaccine::where('startdate','=', 2 )->get();
         $vaccines5 = Vaccine::where('startdate','=', 5 )->get();
         $vaccines12 = Vaccine::where('startdate','=', 12 )->get();
+        $vaccines36 = Vaccine::where('startdate','=', 36 )->get();
 
         return view('home', [
             'children' => $children,
             'vaccines2' => $vaccines2,
             'vaccines5' => $vaccines5,
             'vaccines12' => $vaccines12,
+            'vaccines36' => $vaccines36,
 
         ]);
     }
