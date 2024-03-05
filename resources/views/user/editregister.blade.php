@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="ja">
+@extends('adminlte::page')
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-  <title>editregister</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <!-- <link rel="stylesheet" href="{{ asset('/css/style_iso.css') }}"> -->
-</head>
+@section('title', 'Dashboard')
 
-<body>
+@section('content_header')
+<h1> お子様の情報を修正</h1>
+@stop
+@section('content')
   <div class="mx-auto" style="width: 400px;">
-    <h3>お子様の情報を修正</h2>
       @if ($errors->any())
       <div>
         <ul>
@@ -22,48 +16,37 @@
         </ul>
       </div>
       @endif
-      <form class="form" action="{{ url('/editregister') }}" method="POST" class="form-horizontal">
+      @foreach($children as $child)
+      <form class="form" action="{{ url('/editregister') }}" method="delete" class="form-horizontal">
         {{ csrf_field() }}
         <div class="sm-2">
           <label for="FormControlInput1" class="form-label">お子様の名前</label>
-          <input type="text" name="child_name" class="form-control" value="{{ old('child_name') }}">
+          <input type="text" name="child_name" class="form-control" value="{{$child->child_name}}">
         </div>
 
         <div>
           <label for="FormControl" class="form-label">生年月日</label>
         </div>
-
-        <select>
-          <option value="{{ old('name') }}">--</option>
-          <?php foreach (range(1980, 2024) as $year) : ?>
-            <option value="<?= $year ?>"><?= $year ?></option>
-          <?php endforeach; ?>
-        </select>
-        <label for="day">年</label>
-
-        <select>
-          <option value="">--</option>
-          <?php foreach (range(1, 12) as $month) : ?>
-            <option value="<?= str_pad($month, 2, 0, STR_PAD_LEFT) ?>"><?= $month ?></option>
-          <?php endforeach; ?>
-        </select>
-        <label for="day">月</label>
-
-
-        <select>
-          <option value="">--</option>
-          <?php foreach (range(1, 31) as $day) : ?>
-            <option value="<?= str_pad($day, 2, 0, STR_PAD_LEFT) ?>"><?= $day ?></option>
-          <?php endforeach; ?>
-        </select>
-        <label for="day">日</label>
         <div>
-          <input type="submit" class="btn btn-light" value="追加">
+          <label class="date-edit"><input name="birthday" type="date" value="{{$child->birthday}}" />
+        </label></div>
+        <div>
+          <input type="submit" class="btn btn-light" value="修正">
+          <input type="submit" class="btn btn-light" value="削除">
         </div>
+        @endforeach
+
+        
 
   </div>
   </div>
   </div>
-</body>
+  @stop
 
-</html>
+  @section('css')
+    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop

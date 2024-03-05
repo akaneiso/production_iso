@@ -303,8 +303,8 @@ return [
             'url'  => 'addregister',
         ],
         [
-            'text' => '登録情報の編集',
-            'url'  => 'edtiregister',
+            'text' => 'お子様の情報を修正',
+            'url'  => 'editregister',
         ]
 
         // AdminLTEデフォルト

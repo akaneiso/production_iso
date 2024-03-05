@@ -3,11 +3,10 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<h1> 予防接種一覧</h1>
+<h1> お子様を追加</h1>
 @stop
 @section('content')
   <div class="mx-auto" style="width: 400px;">
-    <h3>お子様を追加</h2>
       @if ($errors->any())
       <div>
         <ul>
@@ -17,6 +16,7 @@
         </ul>
       </div>
       @endif
+
       <form class="form" action="{{ url('/addregister') }}" method="POST" class="form-horizontal">
         {{ csrf_field() }}
         <div class="sm-2">
@@ -28,7 +28,7 @@
           <label for="FormControl" class="form-label">生年月日</label>
         </div>
         <div>
-          <label class="date-edit"><input name="birthday" type="date" value="" />
+          <label class="date-edit"><input name="birthday" type="date" />
         </label></div>
 
         <div>
@@ -45,5 +45,5 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+   
 @stop
