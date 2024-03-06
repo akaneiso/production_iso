@@ -17,7 +17,7 @@
       </div>
       @endif
       @foreach($children as $child)
-      <form class="form" action="{{ url('/editregister') }}" method="delete" class="form-horizontal">
+      <form class="form" action="{{ url('/editregister/delete') }}" method="delete" class="form-horizontal">
         {{ csrf_field() }}
         <div class="sm-2">
           <label for="FormControlInput1" class="form-label">お子様の名前</label>

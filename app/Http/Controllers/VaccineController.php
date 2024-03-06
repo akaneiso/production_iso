@@ -9,6 +9,37 @@ use Illuminate\Support\Facades\Auth;
 
 class VaccineController extends Controller
 {
+//接種予定・済みワクチンの表示
+    public function index(Request $request)
+    {
+        //$user = Auth::user();
+        //$children = Child::where('user_id', $user->id)->get();
+        $children = Child::where('id', '=', $request->id)->get();
+        $vaccines2 = Vaccine::where('startdate','=', 2 )->get();
+        $vaccines5 = Vaccine::where('startdate','=', 5 )->get();
+        $vaccines12 = Vaccine::where('startdate','=', 12 )->get();
+        $vaccines36 = Vaccine::where('startdate','=', 36 )->get();
+
+        return view('user.vaccines', [
+            'children' => $children,
+            'vaccines2' => $vaccines2,
+            'vaccines5' => $vaccines5,
+            'vaccines12' => $vaccines12,
+            'vaccines36' => $vaccines36,
+
+        ]);
+    }
+
+    //接種完了チェックすると完了マークを表示してリダイレクト
+    public function done(Request $request)
+    {
+        Vaccine::find('id', '=', $request->id)->update([
+            'type' => $request->type
+        ]);
+
+        return redirect('/vaccines/{id}');
+
+    }
     //登録情報の追加
     public function add(Request $request)
     {
@@ -59,10 +90,9 @@ class VaccineController extends Controller
     public function delete(Request $request)
     {
         $user = Auth::user();
-        $children = Child::where('user_id', $user->id)->get();
-        $children->delete();
+        $children = Child::where('user_id', $user->id)->delete();
 
-        return redirect('/editregister');
+        return redirect('/');
     }
 
         //予防接種一覧画面表示
