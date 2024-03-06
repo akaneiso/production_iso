@@ -21,12 +21,12 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/vaccines/{id}', [App\Http\Controllers\VaccineController::class, 'index']);
-Route::post('/vaccines/{id}', [App\Http\Controllers\VaccineController::class, 'done']);
+Route::post('/vaccines/{id}', [App\Http\Controllers\VaccineController::class, 'done'])->name('vaccines');
 Route::get('/addregister', [App\Http\Controllers\VaccineController::class, 'add']);
 Route::post('/addregister', [App\Http\Controllers\VaccineController::class, 'add']);
 Route::get('/editregister', [App\Http\Controllers\VaccineController::class, 'edit']);
-Route::post('/editregister', [App\Http\Controllers\VaccineController::class, 'update']);
-Route::get('/editregister/delete', [App\Http\Controllers\VaccineController::class, 'delete']);
+Route::post('/editregister/update/{id}', [App\Http\Controllers\VaccineController::class, 'update']);
+Route::get('/editregister/delete/{id}', [App\Http\Controllers\VaccineController::class, 'delete']);
 Route::get('/vaccineschedule', [App\Http\Controllers\VaccineController::class, 'show']);
 
 Route::prefix('items')->group(function () {
