@@ -13,6 +13,7 @@ $now = new Carbon();
 @endphp
 
 @foreach($children as $child)
+<div class="mx-auto" style="width: 300px;">
 <div class="card" style="width: 20rem;">
   <div class="card-body">
     <h4 class="card-text-mb3"><strong>{{$child->child_name}}</strong>さん</h4>

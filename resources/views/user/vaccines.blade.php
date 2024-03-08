@@ -11,8 +11,8 @@
 use Illuminate\Support\Carbon;
 $now = new Carbon();
 @endphp
-
-<div class="row row-cols-1 row-cols-md-3 g-4">
+<div class="mx-auto" style="width: 400px;">
+<div class="row row-cols-1 ">
   @foreach($children as $child)
   <div class="card text-left">
   
@@ -20,7 +20,7 @@ $now = new Carbon();
       <h3><strong> {{$child->child_name}}</strong>さん</h3>
       <p class="fs-5 d-inline">{{ $now->diff(new Carbon($child->birthday))->y . '歳' }}
       {{ $now->diff(new Carbon($child->birthday))->m . 'ヶ月' }}</p>
-      <a href="/" class="btn btn-primary ml-5">戻る</a>
+  
     </div>
     <div class="card-body">
       @php
@@ -137,7 +137,8 @@ $now = new Carbon();
                 </div>
                 @endforeach
                 @endif
-                <button type="submit" >登録</button>
+                <button type="submit" class="btn btn-primary" >登録</button>
+                <a href="/" class="btn btn-dark ml-1">戻る</a>
     </form>
     </div>
     <div class="card-footer text-body-secondary">
