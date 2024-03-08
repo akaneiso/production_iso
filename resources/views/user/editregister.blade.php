@@ -32,8 +32,7 @@
       </label>
     </div>
     <div>
-      <input type="submit" class="btn btn-light" value="修正">
-      <a href="/editregister/delete/{{$child->id}}" class="btn btn-primary">削除</a>
+      <input type="submit" class="btn btn-primary" value="修正">
     </div>
     @endforeach
 

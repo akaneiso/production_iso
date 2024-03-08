@@ -3,6 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
+<link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 <h1> 接種状況</h1>
 @stop
 
@@ -150,8 +151,9 @@ $now = new Carbon();
 @stop
 
 @section('css')
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
-<link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+
 
 @stop
 

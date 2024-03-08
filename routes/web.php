@@ -26,7 +26,6 @@ Route::get('/addregister', [App\Http\Controllers\VaccineController::class, 'add'
 Route::post('/addregister', [App\Http\Controllers\VaccineController::class, 'add']);
 Route::get('/editregister', [App\Http\Controllers\VaccineController::class, 'edit']);
 Route::post('/editregister/update/{id}', [App\Http\Controllers\VaccineController::class, 'update']);
-Route::get('/editregister/delete/{id}', [App\Http\Controllers\VaccineController::class, 'delete']);
 Route::get('/vaccineschedule', [App\Http\Controllers\VaccineController::class, 'show']);
 
 Route::prefix('items')->group(function () {

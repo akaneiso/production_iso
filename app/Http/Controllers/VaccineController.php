@@ -101,6 +101,7 @@ class VaccineController extends Controller
    
     public function update(Request $request)
 {
+    $i = 0;
     $user = Auth::user();
     $children = Child::where('user_id', $user->id)->get();
 
@@ -109,9 +110,10 @@ class VaccineController extends Controller
     
     foreach ($children as $child) {
         $childData[$child->id] = [
-            'child_name' => $request->child_name[$child->id],
-            'birthday' => $request->birthday[$child->id]
+            'child_name' => $request->child_name[$i],
+            'birthday' => $request->birthday[$i]
         ];
+    $i++;
     }
 
 
@@ -126,20 +128,6 @@ class VaccineController extends Controller
     return redirect('/editregister');
 }
     
-
-    //子供情報を削除
-    public function delete(Request $request)
-    {
-        $user = Auth::user();
-        $children = Child::where('user_id', $user->id);
-        foreach ($children as $child) {
-            $child->child_name = $request->child_name[$child->id];
-            $child->birthday = $request->birthday[$child->id];
-            $child->delete();
-        }
-        return redirect('/');
-    }
-
     //予防接種一覧画面表示
     public function __construct()
     {

@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => '予防接種管理システム',
+    'title' => '予防接種管理',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -63,12 +63,12 @@ return [
     |
     */
 
-    'logo' => '<b>予防接種管理システム</b>',
+    'logo' => '<b>予防接種管理</b>',
     'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => '予防接種管理システム',
+    'logo_img_alt' => '予防接種管理',
 
     /*
     |--------------------------------------------------------------------------
@@ -295,12 +295,13 @@ return [
             'url'  => '/'
         ],
         [
-            'text' => '予防接種一覧',
-            'url'  => 'vaccineschedule'
-        ],
-        [
             'text' => 'お子様を追加',
             'url'  => 'addregister',
+        ],
+        [
+            
+            'text' => '予防接種一覧',
+            'url'  => 'vaccineschedule'
         ],
         [
             'text' => 'お子様の情報を修正',
