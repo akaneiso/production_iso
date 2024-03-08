@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<h1> お子様の情報を修正</h1>
+<h1>お子様の情報を修正</h1>
 @stop
 @section('content')
 <div class="mx-auto" style="width: 400px;">
@@ -17,25 +17,27 @@
   </div>
   @endif
   @foreach($children as $child)
+  
   <form class="form" action="/editregister/update/{{$child->id}}" method="post" class="form-horizontal">
     {{ csrf_field() }}
+    
     <div class="sm-2">
       <label for="FormControlInput1" class="form-label">お子様の名前</label>
-      <input type="text" name="child_name[]" class="form-control" value="{{$child->child_name}}">
+      <input type="text" name="child_name[]" class="form-control mb-3" value="{{$child->child_name}}">
     </div>
 
     <div>
       <label for="FormControl" class="form-label">生年月日</label>
     </div>
     <div>
-      <label class="date-edit"><input name="birthday[]" type="date" value="{{$child->birthday}}" />
+      <label class="date-edit mb-3"><input name="birthday[]" type="date" value="{{$child->birthday}}" />
       </label>
     </div>
     <div>
-      <input type="submit" class="btn btn-primary" value="修正">
+      <input type="submit" class="btn btn-primary mb-4" value="修正">
     </div>
     @endforeach
-
+   
 
 
 </div>

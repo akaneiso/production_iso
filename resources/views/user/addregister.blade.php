@@ -21,18 +21,18 @@
         {{ csrf_field() }}
         <div class="sm-2">
           <label for="FormControlInput1" class="form-label">お子様の名前</label>
-          <input type="text" name="child_name" class="form-control">
+          <input type="text" name="child_name" class="form-control mb-3">
         </div>
 
         <div>
           <label for="FormControl" class="form-label">生年月日</label>
         </div>
         <div>
-          <label class="date-edit"><input name="birthday" type="date" />
+          <label class="date-edit mb-3"><input name="birthday" type="date" />
         </label></div>
 
         <div>
-          <input type="submit" class="btn btn-light" value="追加">
+          <input type="submit" class="btn btn-primary  mt-3" value="追加">
         </div>
 
   </div>

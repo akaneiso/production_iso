@@ -3,7 +3,6 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<link rel="stylesheet" href="{{ asset('/css/style.css') }}">
 <h1> 接種状況</h1>
 @stop
 
@@ -16,11 +15,12 @@ $now = new Carbon();
 <div class="row row-cols-1 row-cols-md-3 g-4">
   @foreach($children as $child)
   <div class="card text-left">
+  
     <div class="card-header">
-      <h3> {{$child->child_name}}さん</h3>
-      <span class="age">{{ $now->diff(new Carbon($child->birthday))->y . '歳' }}</span>
-      <span class="age">{{ $now->diff(new Carbon($child->birthday))->m . 'ヶ月' }}</span>
-      <a href="/" class="btn btn-primary">戻る</a>
+      <h3><strong> {{$child->child_name}}</strong>さん</h3>
+      <p class="fs-5 d-inline">{{ $now->diff(new Carbon($child->birthday))->y . '歳' }}
+      {{ $now->diff(new Carbon($child->birthday))->m . 'ヶ月' }}</p>
+      <a href="/" class="btn btn-primary ml-5">戻る</a>
     </div>
     <div class="card-body">
       @php
@@ -151,7 +151,6 @@ $now = new Carbon();
 @stop
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
 
 

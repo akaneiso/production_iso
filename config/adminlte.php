@@ -298,14 +298,14 @@ return [
             'text' => 'お子様を追加',
             'url'  => 'addregister',
         ],
-        [
-            
-            'text' => '予防接種一覧',
-            'url'  => 'vaccineschedule'
-        ],
-        [
+        [    
             'text' => 'お子様の情報を修正',
             'url'  => 'editregister',
+        ],
+        [
+            'text' => '予防接種一覧',
+            'url'  => 'vaccineschedule'
+        
         ]
 
         // AdminLTEデフォルト
