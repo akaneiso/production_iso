@@ -30,16 +30,13 @@
         <div>
           <label for="FormControl" class="form-label">生年月日</label>
         </div>
-        <label class="date-edit mb-3"><input name="birthday[]" type="date" value="{{$child->birthday}}" /></label>
-        <div>
-          <input type="submit" class="btn btn-primary" value="修正">
-        </div>
+        <input name="birthday[]" type="date" value="{{$child->birthday}}" />
       </div>
-      @endforeach
   </div>
+  @endforeach
+  <input type="submit" class="btn btn-primary ml-3" value="修正">
 </div>
-</div>
-</div>
+
 <a href="/" class="btn btn-dark">戻る</a>
 
 @stop
