@@ -70,9 +70,11 @@ class VaccineController extends Controller
             // バリデーション
             $this->validate($request, [
                 'child_name' => 'required|max:30',
+                'birthday' => 'required'
             ], [
                 'child_name.required' => '名前は必須です。',
                 'child_name.max' => '名前は30文字以内です。',
+                'birthday.required' => '生年月日は必須です。'
             ]);
 
             Child::create([

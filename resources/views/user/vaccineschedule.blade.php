@@ -39,6 +39,7 @@
             </div>
         </div>
     </div>
+    <a href="/" class="btn btn-dark ml-1">戻る</a>
 @stop
 
 @section('css')
