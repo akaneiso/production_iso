@@ -16,7 +16,7 @@
     </ul>
   </div>
   @endif
-  @foreach($children as $child)
+ 
   <div class="card text-left">
     <form class="form" action="/editregister/update/{{$child->id}}" method="post" class="form-horizontal">
       {{ csrf_field() }}
@@ -24,16 +24,16 @@
       <div class="w-75 p-3">
         <div>
           <label for="FormControlInput1" class="form-label ">お子様の名前</label>
-          <input type="text" name="child_name[]" class="form-control mb-3 " value="{{$child->child_name}}">
+          <input type="text" name="child_name" class="form-control mb-3 " value="{{$child->child_name}}">
         </div>
 
         <div>
           <label for="FormControl" class="form-label">生年月日</label>
         </div>
-        <input name="birthday[]" type="date" value="{{$child->birthday}}" />
+        <input name="birthday" type="date" value="{{$child->birthday}}" />
       </div>
   </div>
-  @endforeach
+  
   <input type="submit" class="btn btn-primary ml-3" value="修正">
 </div>
 

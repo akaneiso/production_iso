@@ -7,6 +7,7 @@ use App\Models\Vaccine;
 use App\Models\Child;
 use COM;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class VaccineController extends Controller
 {
@@ -91,43 +92,39 @@ class VaccineController extends Controller
     }
 
     //お子様情報の修正
-    public function edit(Request $request)
+    public function edit(Request $request, $id)
     {
         //一覧から指定されたIDと同じIDのレコードを取得するし表示
         $user = Auth::user();
-        $children = Child::where('user_id', $user->id)->get();
-        return view('user.editregister', ['children' => $children]);
+        $child = Child::where('id', $id)->first();
+        return view('user.editregister', ['child' => $child]);
     }
     //編集したお子様情報を登録
 
    
-    public function update(Request $request)
+    public function update(Request $request, $id)
 {
-    $i = 0;
-    $user = Auth::user();
-    $children = Child::where('user_id', $user->id)->get();
+    $validator = Validator::make($request->all(),[
+            'child_name' => 'required|max:30',
+            'birthday' => 'required',
+        ],[
+            'child_name.required' => '名前は必須です',
+            'child_name.max' => '名前は30文字以内です。',
+            'birthday.required' => '生年月日は必須です。'
+        ]);
 
-    // 一時的な配列を用意して、各子供の情報を保存する
-    $childData = [];
-    
-    foreach ($children as $child) {
-        $childData[$child->id] = [
-            'child_name' => $request->child_name[$i],
-            'birthday' => $request->birthday[$i]
-        ];
-    $i++;
-    }
-
-
-    // 一時的に保存した情報をデータベースに反映する
-    foreach ($childData as $childId => $data) {
-        $child = Child::find($childId);
-        $child->child_name = $data['child_name'];
-        $child->birthday = $data['birthday'];
+        if($validator->fails()){
+            return redirect()->back()
+            ->withInput()
+            ->withErrors($validator);
+        }
+        
+        $user = Auth::user();
+        $child = Child::where('id', $id)->first();
+        $child->child_name = $request->child_name;
+        $child->birthday = $request->birthday;
         $child->save();
-    }
-
-    return redirect('/editregister');
+    return redirect('/');
 }
     
     //予防接種一覧画面表示

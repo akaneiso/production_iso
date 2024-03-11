@@ -22,6 +22,7 @@ $now = new Carbon();
       <span>{{ $now->diff(new Carbon($child->birthday))->m . 'ヶ月' }}</span>
     </h5>
     <a href="/vaccines/{{$child->id}}" class="btn btn-primary">接種状況を確認する</a>
+    <a href="/editregister/{{$child->id}}" class="btn btn-primary">編集</a>
   </div>
 </div>
 @endforeach

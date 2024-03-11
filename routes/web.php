@@ -24,7 +24,7 @@ Route::get('/vaccines/{id}', [App\Http\Controllers\VaccineController::class, 'in
 Route::post('/vaccines/{id}', [App\Http\Controllers\VaccineController::class, 'done'])->name('vaccines');
 Route::get('/addregister', [App\Http\Controllers\VaccineController::class, 'add']);
 Route::post('/addregister', [App\Http\Controllers\VaccineController::class, 'add']);
-Route::get('/editregister', [App\Http\Controllers\VaccineController::class, 'edit']);
+Route::get('/editregister/{id}', [App\Http\Controllers\VaccineController::class, 'edit']);
 Route::post('/editregister/update/{id}', [App\Http\Controllers\VaccineController::class, 'update']);
 Route::get('/vaccineschedule', [App\Http\Controllers\VaccineController::class, 'show']);
 
