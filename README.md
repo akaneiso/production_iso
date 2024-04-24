@@ -1,43 +1,28 @@
-## 商品管理システム
+# 予防接種管理システム
 
-### 環境構築手順
+## 概要
+このシステムでは子供の予防接種を受ける時期、どのワクチンを受けたのかを管理ができる。
 
-* Gitクローン
-* .env.example をコピーして .env を作成
-* MySQLのデータベース作成（名前：item_management）
-* Macの場合 .env の DB_PASSWORD を root に修正（Windowsは修正不要）
+## 主な機能
+- ログイン・ログアウト機能
+- ユーザーのみシステムにアクセスできる
+- 子供データを登録、編集できる
+- 子供の月齢に応じて接種すべき予防接種が確認できる
+- 接種済みのワクチンに印をつけることができる
+ 
+## 開発環境
+PHP 8.2.0
+mysql 14.14
+Laravel 10.13.5
 
-    ```INI
-    DB_PASSWORD=root
-    ```
+## 設計書
+[設計書ページへ](https://docs.google.com/spreadsheets/d/1trYiiSzUGtivpaUsHn6_3yEXOXdWg0fy/edit#gid=278327747)
 
-* APP_KEY生成
+## システム閲覧
+[アプリケーションページへ](https://production-iso-865db123fa65.herokuapp.com/login)
 
-    ```console
-    php artisan key:generate
-    ```
-
-* Composerインストール
-
-    ```console
-    composer install
-    ```
-
-* フロント環境構築
-
-    ```console
-    npm ci
-    npm run build
-    ```
-
-* マイグレーション
-
-    ```console
-    php artisan migrate
-    ```
-
-* 起動
-
-    ```console
-    php artisan serve
-    ```
+## テストアカウント情報
+```
+メールアドレス：new1@example.com
+パスワード：12345678
+```
